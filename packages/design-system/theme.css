@@ -1,0 +1,92 @@
+/* Shared Tailwind v4 semantic contract for Next.js and NativeWind. */
+@theme inline {
+  --color-background: var(--sc-background);
+  --color-surface: var(--sc-surface);
+  --color-card: var(--sc-card);
+  --color-border: var(--sc-border);
+  --color-primary: var(--sc-primary);
+  --color-secondary: var(--sc-secondary);
+  --color-accent: var(--sc-accent);
+  --color-info: var(--sc-info);
+  --color-foreground: var(--sc-foreground);
+  --color-muted: var(--sc-muted);
+  --color-disabled: var(--sc-disabled);
+  --color-metallic: var(--sc-metallic);
+  --color-gold: var(--sc-gold);
+  --color-success: var(--sc-success);
+  --color-warning: var(--sc-warning);
+  --color-danger: var(--sc-danger);
+  --color-pink: var(--sc-pink);
+  --color-purple: var(--sc-purple);
+  --color-orange: var(--sc-orange);
+  --color-teal: var(--sc-teal);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --spacing: 0.25rem;
+  --default-transition-duration: 220ms;
+}
+
+:root {
+  color-scheme: light dark;
+  --sc-background: #f8fafc; --sc-surface: #ffffff; --sc-card: #f1f5f9;
+  --sc-border: #d8dee9; --sc-primary: #1e3a8a; --sc-secondary: #475569; --sc-accent: #6d28d9; --sc-info: #0369a1;
+  --sc-foreground: #111827; --sc-muted: #64748b; --sc-disabled: #9ca3af;
+  --sc-metallic: #9ca3af; --sc-gold: #d4af37; --sc-success: #15803d;
+  --sc-warning: #b45309; --sc-danger: #b91c1c;
+  --sc-pink: #db2777; --sc-purple: #9333ea; --sc-orange: #c2410c; --sc-teal: #0f766e;
+  --sc-primary-fg: #ffffff; --sc-secondary-fg: #ffffff; --sc-accent-fg: #ffffff; --sc-info-fg: #ffffff;
+  --sc-success-fg: #ffffff; --sc-warning-fg: #ffffff; --sc-danger-fg: #ffffff;
+  --sc-pink-fg: #ffffff; --sc-purple-fg: #ffffff; --sc-orange-fg: #ffffff; --sc-teal-fg: #ffffff; --sc-neutral-fg: #ffffff;
+  --sc-primary-hover: #172d6f; --sc-secondary-hover: #3b4655; --sc-accent-hover: #5d1fb8; --sc-info-hover: #025480;
+  --sc-success-hover: #106b32; --sc-warning-hover: #924407; --sc-danger-hover: #991515;
+  --sc-pink-hover: #b91e64; --sc-purple-hover: #7c28c4; --sc-orange-hover: #a13508; --sc-teal-hover: #0c5f58; --sc-neutral-hover: #475569;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sc-background: #0f1420; --sc-surface: #171e2e; --sc-card: #20293a;
+    --sc-border: #303a4d; --sc-primary: #3b5ccc; --sc-secondary: #94a3b8; --sc-accent: #7c3aed; --sc-info: #38bdf8;
+    --sc-foreground: #f1f5f9; --sc-muted: #a8b3c5; --sc-disabled: #667085;
+    --sc-success: #4ade80; --sc-warning: #fbbf24; --sc-danger: #f87171;
+    --sc-pink: #f472b6; --sc-purple: #c084fc; --sc-orange: #fb923c; --sc-teal: #2dd4bf;
+    --sc-primary-fg: #ffffff; --sc-secondary-fg: #0f1420; --sc-accent-fg: #ffffff; --sc-info-fg: #083344;
+    --sc-success-fg: #083344; --sc-warning-fg: #1a1200; --sc-danger-fg: #1a0808;
+    --sc-pink-fg: #1a0a14; --sc-purple-fg: #1a0a2e; --sc-orange-fg: #1a0a00; --sc-teal-fg: #003330; --sc-neutral-fg: #0f1420;
+    --sc-primary-hover: #4d6fe0; --sc-secondary-hover: #a8b8cc; --sc-accent-hover: #8d50f0; --sc-info-hover: #5cc9f9;
+    --sc-success-hover: #6ee894; --sc-warning-hover: #fcc944; --sc-danger-hover: #f88d8d;
+    --sc-pink-hover: #f68dc6; --sc-purple-hover: #cc9afd; --sc-orange-hover: #fca75c; --sc-teal-hover: #45ddca; --sc-neutral-hover: #bcc7d8;
+  }
+}
+
+/* Explicit user choice wins over the operating-system preference. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --sc-background: #f8fafc; --sc-surface: #ffffff; --sc-card: #f1f5f9;
+  --sc-border: #d8dee9; --sc-primary: #1e3a8a; --sc-secondary: #475569; --sc-accent: #6d28d9; --sc-info: #0369a1;
+  --sc-foreground: #111827; --sc-muted: #64748b; --sc-disabled: #9ca3af;
+  --sc-success: #15803d; --sc-warning: #b45309; --sc-danger: #b91c1c;
+  --sc-pink: #db2777; --sc-purple: #9333ea; --sc-orange: #c2410c; --sc-teal: #0f766e;
+  --sc-primary-fg: #ffffff; --sc-secondary-fg: #ffffff; --sc-accent-fg: #ffffff; --sc-info-fg: #ffffff;
+  --sc-success-fg: #ffffff; --sc-warning-fg: #ffffff; --sc-danger-fg: #ffffff;
+  --sc-pink-fg: #ffffff; --sc-purple-fg: #ffffff; --sc-orange-fg: #ffffff; --sc-teal-fg: #ffffff; --sc-neutral-fg: #ffffff;
+  --sc-primary-hover: #172d6f; --sc-secondary-hover: #3b4655; --sc-accent-hover: #5d1fb8; --sc-info-hover: #025480;
+  --sc-success-hover: #106b32; --sc-warning-hover: #924407; --sc-danger-hover: #991515;
+  --sc-pink-hover: #b91e64; --sc-purple-hover: #7c28c4; --sc-orange-hover: #a13508; --sc-teal-hover: #0c5f58; --sc-neutral-hover: #475569;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --sc-background: #0f1420; --sc-surface: #171e2e; --sc-card: #20293a;
+  --sc-border: #303a4d; --sc-primary: #3b5ccc; --sc-secondary: #94a3b8; --sc-accent: #7c3aed; --sc-info: #38bdf8;
+  --sc-foreground: #f1f5f9; --sc-muted: #a8b3c5; --sc-disabled: #667085;
+  --sc-success: #4ade80; --sc-warning: #fbbf24; --sc-danger: #f87171;
+  --sc-pink: #f472b6; --sc-purple: #c084fc; --sc-orange: #fb923c; --sc-teal: #2dd4bf;
+  --sc-primary-fg: #ffffff; --sc-secondary-fg: #0f1420; --sc-accent-fg: #ffffff; --sc-info-fg: #083344;
+  --sc-success-fg: #083344; --sc-warning-fg: #1a1200; --sc-danger-fg: #1a0808;
+  --sc-pink-fg: #1a0a14; --sc-purple-fg: #1a0a2e; --sc-orange-fg: #1a0a00; --sc-teal-fg: #003330; --sc-neutral-fg: #0f1420;
+  --sc-primary-hover: #4d6fe0; --sc-secondary-hover: #a8b8cc; --sc-accent-hover: #8d50f0; --sc-info-hover: #5cc9f9;
+  --sc-success-hover: #6ee894; --sc-warning-hover: #fcc944; --sc-danger-hover: #f88d8d;
+  --sc-pink-hover: #f68dc6; --sc-purple-hover: #cc9afd; --sc-orange-hover: #fca75c; --sc-teal-hover: #45ddca; --sc-neutral-hover: #bcc7d8;
+}

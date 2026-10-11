@@ -1,0 +1,23 @@
+{
+  "name": "scenariom-front",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev:web": "pnpm --filter scenariom-web dev",
+    "dev:app": "pnpm --filter scenariom-app start",
+    "build:web": "pnpm --filter scenariom-web build",
+    "check": "pnpm typecheck && pnpm --filter scenariom-web lint && pnpm --filter scenariom-app lint && pnpm expo:check && pnpm build:web",
+    "check:packages": "pnpm exec tsc -p packages/i18n/tsconfig.json && pnpm exec tsc -p packages/design-system/tsconfig.json",
+    "check:push": "pnpm check && pnpm audit",
+    "typecheck": "pnpm check:packages && pnpm exec tsc -p web/tsconfig.json && pnpm --dir mobile exec tsc -p tsconfig.json",
+    "deps:update": "pnpm --recursive update",
+    "deps:outdated": "pnpm --recursive outdated",
+    "expo:check": "pnpm --dir mobile exec expo install --check",
+    "expo:sync": "pnpm --dir mobile exec expo install --fix",
+    "audit": "pnpm audit --audit-level high"
+  }
+}

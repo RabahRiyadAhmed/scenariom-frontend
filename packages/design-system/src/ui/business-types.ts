@@ -1,0 +1,25 @@
+import type { ReactNode } from 'react';
+import type { UiOption } from './types';
+
+export type SceneDraft = { title: string; description: string; order: number; status?: string };
+export type SceneEditorLabels = { title: string; description: string; order: string; status?: string };
+export type SceneEditorProps = { value: SceneDraft; onChange: (value: SceneDraft) => void; labels: SceneEditorLabels; statusOptions?: UiOption[]; disabled?: boolean; actions?: ReactNode };
+export type CharacterDraft = { name: string; description: string; role?: string; tags: string[] };
+export type CharacterEditorLabels = { name: string; description: string; role: string; tags: string; addTag: string; removeTag: (tag: string) => string };
+export type CharacterEditorProps = { value: CharacterDraft; onChange: (value: CharacterDraft) => void; labels: CharacterEditorLabels; roleOptions?: UiOption[]; disabled?: boolean; actions?: ReactNode };
+export type MemberOption = { id: string; name: string; email?: string; avatarUri?: string; description?: string; disabled?: boolean };
+export type MemberPickerProps = { label: string; members: MemberOption[]; selectedIds: string[]; onSelectedIdsChange: (ids: string[]) => void; searchPlaceholder: string; emptyMessage: string; removeLabel: (name: string) => string; disabled?: boolean };
+export type PermissionDefinition = { key: string; label: string; description?: string; actions: { key: string; label: string }[] };
+export type PermissionEditorProps = { definitions: PermissionDefinition[]; values: Record<string,string[]>; onChange: (values: Record<string,string[]>) => void; disabled?: boolean };
+export type RoleDraft = { name: string; description: string; permissions: Record<string,string[]> };
+export type RoleEditorLabels = { name: string; description: string; permissions: string };
+export type RoleEditorProps = { value: RoleDraft; onChange: (value: RoleDraft) => void; labels: RoleEditorLabels; definitions: PermissionDefinition[]; disabled?: boolean; actions?: ReactNode };
+export type ProjectStatusSelectorProps = { label: string; value?: string; options: UiOption[]; onChange: (value: string) => void; disabled?: boolean };
+export type TagEditorProps = { label: string; values: string[]; onChange: (values: string[]) => void; placeholder: string; addLabel: string; removeLabel: (tag: string) => string; disabled?: boolean };
+export type CommentItem = { id: string; authorName: string; authorAvatarUri?: string; body: string; createdAt: string; replies?: CommentItem[] };
+export type CommentThreadProps = { comments: CommentItem[]; value: string; onValueChange: (value: string) => void; onSubmit: () => void; placeholder: string; submitLabel: string; emptyContent?: ReactNode; disabled?: boolean };
+export type VersionItem = { id: string; label: string; author?: string; createdAt: string; description?: string };
+export type VersionHistoryProps = { versions: VersionItem[]; onRestore?: (version: VersionItem) => void; restoreLabel: (label: string) => string; emptyContent?: ReactNode };
+export type AutosaveStatus = 'idle' | 'saving' | 'saved' | 'error';
+export type AutosaveIndicatorProps = { status: AutosaveStatus; labels: Record<AutosaveStatus,string>; updatedAt?: string };
+export type UnsavedChangesGuardProps = { hasUnsavedChanges: boolean; children: ReactNode; message: string; onBlockedNavigation?: () => void };

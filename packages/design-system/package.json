@@ -1,0 +1,31 @@
+{
+  "name": "@scenariom/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens": "./src/tokens.ts",
+    "./themes": "./src/themes.ts",
+    "./component-catalog": "./src/component-catalog.ts",
+    "./fixtures/tables": "./src/example-table-data.ts",
+    "./ui": {
+      "react-native": "./src/components/ui/index.native.ts",
+      "default": "./src/components/ui/index.web.ts"
+    },
+    "./ui/native": "./src/components/ui/index.native.ts",
+    "./components/ui": {
+      "react-native": "./src/components/ui/index.native.ts",
+      "default": "./src/components/ui/index.web.ts"
+    },
+    "./components/ui/*": {
+      "react-native": "./src/components/ui/*/index.native.ts",
+      "default": "./src/components/ui/*/index.web.ts"
+    },
+    "./ui-theme": "./src/ui-theme.tsx",
+    "./specialized-types": "./src/specialized/types.ts",
+    "./theme.css": "./theme.css"
+  },
+  "peerDependencies": { "react": ">=19", "react-native": ">=0.86", "react-native-css": ">=3.0.1", "expo-symbols": ">=57.0.0", "lucide-react": ">=0.460.0" },
+  "peerDependenciesMeta": { "react-native": { "optional": true }, "react-native-css": { "optional": true }, "expo-symbols": { "optional": true }, "lucide-react": { "optional": true } }
+}

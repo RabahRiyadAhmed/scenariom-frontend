@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "@scenariom/design-system/theme.css";
+@import "tinymce/skins/ui/oxide/skin.min.css";
+@source "../../packages/design-system/src";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--sc-background);
+  color: var(--sc-foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html[data-bg="true"] body {
+  background-color: transparent;
+}
+html[data-bg="true"] body::after,
+html[data-bg="true"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+html[data-bg="true"] body::after {
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  opacity: calc(var(--bg-visibility, 70) / 100);
+  z-index: -2;
+}
+html[data-bg="true"] body::before {
+  background: var(--sc-background);
+  opacity: calc(var(--bg-filter, 12) / 100);
+  z-index: -1;
+}
+html[data-bg="true"] body > .bg-background {
+  background-color: transparent;
+}
+html[data-bg="true"] :is(input, select, textarea).bg-background,
+html[data-bg="true"] :is(input, select, textarea).bg-surface {
+  background-color: var(--sc-surface) !important;
+}
+html[data-bg="true"] .readable-on-background:not(.bg-surface *):not(.bg-card *) {
+  text-shadow: 0 1px 3px color-mix(in srgb, var(--sc-background) 92%, transparent);
+}
+html[data-bg="true"] :is(.bg-surface, .bg-card) {
+  text-shadow: none;
+}
+
+:root[data-style="cyberpunk"] .theme-effect,
+:root[data-style="neon"] .theme-effect { box-shadow: 0 0 18px color-mix(in srgb, var(--sc-accent) 55%, transparent); }
+:root[data-style="cyberpunk"] .theme-effect { border-color: var(--sc-accent); }
+:root[data-style="arcane"] .theme-effect { box-shadow: 0 0 14px color-mix(in srgb, var(--sc-primary) 45%, transparent); border-color: color-mix(in srgb, var(--sc-gold) 40%, var(--sc-border)); }
+:root[data-style="manga"] .theme-effect { border-width: 2px; }
+:root[data-style="editorial"] body { font-family: Georgia, 'Times New Roman', serif; }
+:root[data-style="noir"] .theme-effect { border-color: color-mix(in srgb, var(--sc-gold) 30%, var(--sc-border)); }
+:root[data-style="retro"] body { font-family: Georgia, 'Times New Roman', serif; }
+
+.theme-logo-dark { display: none; }
+:root[data-theme="dark"] .theme-logo-light { display: none; }
+:root[data-theme="dark"] .theme-logo-dark { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-logo-light { display: none; }
+  :root:not([data-theme="light"]) .theme-logo-dark { display: block; }
+}
+
+@keyframes template-loading-zoom-in {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes template-loading-zoom-out {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(1.75); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.template-loading-zoom-in { animation: template-loading-zoom-in .22s ease-out both; }
+.template-loading-zoom-out { animation: template-loading-zoom-out .22s ease-out both; }

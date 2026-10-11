@@ -1,0 +1,51 @@
+# Dependencies and package-manager caches
+node_modules/
+**/node_modules/
+.pnpm-store/
+.npm-cache/
+
+# Next, Expo and generated builds
+.next/
+**/.next/
+.expo/
+**/.expo/
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
+out/
+**/out/
+web-build/
+**/web-build/
+.vercel/
+**/.vercel/
+*.tsbuildinfo
+
+# Native generated projects and credentials
+mobile/android/
+mobile/ios/
+*.pem
+*.key
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+
+# Environment files and secrets
+.env
+**/.env
+.env.*
+**/.env.*
+!.env.example
+!**/.env.example
+!.env.*.example
+!**/.env.*.example
+
+# Logs and local tooling
+*.log
+**/*.log
+**/.metro-health-check*
+.DS_Store
+Thumbs.db

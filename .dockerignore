@@ -1,0 +1,13 @@
+**/node_modules
+**/.next
+**/.expo
+**/dist
+**/build
+**/coverage
+**/.git
+**/.env
+**/*.log
+.pnpm-store
+.npm-cache
+mobile/android
+mobile/ios
