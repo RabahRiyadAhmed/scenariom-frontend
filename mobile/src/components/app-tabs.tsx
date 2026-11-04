@@ -36,6 +36,7 @@ const languageLabels: Record<(typeof languages)[number], string> = {
 };
 const categoryOrder = [
   "platform",
+  "custom",
   "fantasy",
   "sci-fi",
   "nature",
@@ -45,6 +46,7 @@ const categoryOrder = [
 ] as const;
 const themeCategory = (category?: unknown) => {
   const value = String(category ?? "platform");
+  if (value === "custom") return "custom";
   if (["mystical", "medieval-fantasy", "fantasy"].includes(value))
     return "fantasy";
   if (

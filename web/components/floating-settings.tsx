@@ -26,6 +26,7 @@ const languageLabels: Record<Locale, string> = {
 
 const themeCategory=(category?:unknown)=>{
   const value=String(category??'platform');
+  if(value==='custom')return 'custom';
   if(['mystical','medieval-fantasy','fantasy'].includes(value))return 'fantasy';
   if(['futuristic','technical','industrial-period','sci-fi'].includes(value))return 'sci-fi';
   if(['nature','calm-nature','coastal','deep-ocean'].includes(value))return 'nature';

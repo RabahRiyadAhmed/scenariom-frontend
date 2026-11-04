@@ -1,5 +1,15 @@
 # Fiches des composants UI
 
+Le premier cas d'intégration transverse est défini dans
+`../CUSTOMIZATION_FOUNDATION_CASE.md`. Les fiches de ce dossier décrivent les capacités du
+catalogue ; elles ne constituent pas toutes le périmètre du premier incrément.
+
+L'inventaire préalable des variables et l'ordre de dynamisation sont définis dans
+`../COMPONENT_CUSTOMIZATION_AUDIT.md`.
+
+La liste stricte des pages d'exemple visibles sur Next et Expo, ainsi que les composants
+reportés ou regroupés, est définie dans `../COMPONENT_EXAMPLE_PAGES.md`.
+
 Chaque fichier décrit un composant testable indépendamment. Les fiches servent de contrat avant de créer un composant custom.
 
 Fiches disponibles :

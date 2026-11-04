@@ -11,7 +11,13 @@
 body {
   background-color: var(--sc-background);
   color: var(--sc-foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--sc-font-family, var(--font-geist-sans), Arial, Helvetica, sans-serif);
+  font-size: var(--sc-font-size-base, 16px);
+  line-height: var(--sc-line-height, 1.5);
+}
+
+body .border {
+  border-width: var(--sc-border-width, 1px);
 }
 
 html[data-bg="true"] body {

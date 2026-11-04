@@ -562,8 +562,8 @@ export function ComponentPreview({
   if (String(name) === "UiSpinner") return <InertiaTemplatePreview kind="spinners"/>;
   if (String(name) === "UiImages") return <InertiaTemplatePreview kind="images"/>;
   if (String(name) === "UiList") return <InertiaTemplatePreview kind="lists"/>;
-  if (String(name) === "SpecializedCarousel") return <InertiaTemplatePreview kind="carousel"/>;
-  if (String(name) === "SpecializedVideo") return <InertiaTemplatePreview kind="video"/>;
+  if (String(name) === "UiCarousel") return <InertiaTemplatePreview kind="carousel"/>;
+  if (String(name) === "UiVideo") return <InertiaTemplatePreview kind="video"/>;
   if (String(name) === "UiDropdownMenu") return <ReferencePagesPreview kind="dropdowns"/>;
   if (String(name) === "UiRibbons") return <ReferencePagesPreview kind="ribbons"/>;
   if (String(name) === "UiTooltipsPopovers") return <ReferencePagesPreview kind="overlays"/>;
@@ -750,7 +750,7 @@ export function ComponentPreview({
       );
     case "UiRangeSlider":
       return <RangeSlidersTemplatePreview/>;
-    case "SpecializedCarousel":
+    case "UiCarousel":
       return (
         <SpecializedCarousel
           accessibilityLabel={tr(locale, "componentPreview.preview")}

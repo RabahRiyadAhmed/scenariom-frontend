@@ -1,12 +1,27 @@
 # Plan directeur Web, Expo et editeurs custom
 
+> Le vocabulaire et le premier cas vertical à implémenter sont fixés dans
+> `CUSTOMIZATION_FOUNDATION_CASE.md`. En cas d'ambiguïté sur la portée du premier incrément,
+> ce cas « forêt → grotte » fait référence.
+>
+> Avant ce cas vertical et avant toute évolution de la BDD, suivre
+> `COMPONENT_CUSTOMIZATION_AUDIT.md` : audit des valeurs, fondations dynamiques et preuve de
+> parité Web/Expo sur `Button`.
+>
+> Décision de travail actuelle : stabiliser d'abord le thème global (palette, rayons,
+> espacements, typographie, bordure, motion et backgrounds). L'éditeur de composants, les
+> pages custom et les affectations métier restent suspendus pendant cette étape.
+
 ## Statut du document
 
 Ce document est un audit et une feuille de route. Il ne signifie pas que les corrections sont deja implementees.
 
 L'objectif est de garantir une parite semantique entre Next.js et Expo : memes donnees, composants, tokens et comportements, avec des adaptations controlees pour le Web, le mobile et la tablette.
 
-La mise en oeuvre devra suivre cet ordre : correction des fondations actuelles, moteur de style partage, editeur de styles globaux, composants custom, pages custom, puis langage declaratif securise.
+La mise en oeuvre devra suivre cet ordre : audit et classification de tous les composants,
+correction des fondations actuelles, preuve dynamique sur `Button`, extension progressive aux
+primitives, moteur de style partage stabilise, persistance backend, editeur de styles globaux,
+composants custom, pages custom, puis langage declaratif securise.
 
 ## Architecture actuelle
 

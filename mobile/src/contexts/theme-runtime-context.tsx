@@ -13,6 +13,7 @@ import { Image, Platform, useColorScheme, View } from "react-native";
 import { VariableContextProvider } from "react-native-css";
 import {
   isThemeDefinition,
+  resolveThemeBackground,
   resolveThemeColors,
   scenariomTheme,
   themeCssVariables,
@@ -119,6 +120,7 @@ export function ThemeRuntimeProvider({ children }: { children: ReactNode }) {
   const theme = themeRecord?.definition ?? scenariomTheme;
   const resolvedMode = mode === "system" ? systemMode : mode;
   const previewKey = `${themeSlug}:${resolvedMode}`;
+  const definitionBackground = resolveThemeBackground(theme, resolvedMode);
   const variables = themeCssVariables(theme, resolvedMode);
   const baseColors = resolveThemeColors(theme, resolvedMode);
   const colors: RuntimeColors = {
@@ -132,25 +134,26 @@ export function ThemeRuntimeProvider({ children }: { children: ReactNode }) {
     string | undefined;
   const darkBackgroundPath = themeRecord?.extraData?.backgroundImageDarkPath as
     string | undefined;
-  const selectedBackgroundPath =
+  const legacyBackgroundPath =
     resolvedMode === "dark"
       ? (darkBackgroundPath ?? generalBackgroundPath)
       : generalBackgroundPath;
+  const selectedBackgroundPath = definitionBackground.imageUrl ?? legacyBackgroundPath ?? theme.assets?.backgroundImageUrl;
   const backgroundImageUrl = selectedBackgroundPath
-    ? `${apiUrl}${selectedBackgroundPath}`
+    ? (selectedBackgroundPath.startsWith('/') ? `${apiUrl}${selectedBackgroundPath}` : selectedBackgroundPath)
     : undefined;
   const bgOpacity = themeRecord?.extraData?.backgroundOpacity as
     { light: number; dark: number } | undefined;
   const backgroundOpacity =
     (opacityPreview?.key === previewKey ? opacityPreview.value : null) ??
-    (resolvedMode === "dark"
+    definitionBackground.opacity ?? (resolvedMode === "dark"
       ? (bgOpacity?.dark ?? 50)
       : (bgOpacity?.light ?? 70));
   const bgFilter = themeRecord?.extraData?.backgroundFilter as
     { light: number; dark: number } | undefined;
   const backgroundFilter =
     (filterPreview?.key === previewKey ? filterPreview.value : null) ??
-    (resolvedMode === "dark"
+    definitionBackground.overlay ?? (resolvedMode === "dark"
       ? (bgFilter?.dark ?? 24)
       : (bgFilter?.light ?? 12));
   const hasBg = backgroundEnabled && !!backgroundImageUrl;
